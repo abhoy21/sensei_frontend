@@ -165,12 +165,12 @@ function LandinPage() {
             </svg>
             <blockquote>
               <p className="text-xl font-medium text-gray-900 md:text-2xl dark:text-white">
-                "Finding a trustworthy mentor was crucial for my academic
+                &quot;Finding a trustworthy mentor was crucial for my academic
                 success, and this website exceeded my expectations. The seamless
                 matching process connected me with a Sensei who not only had the
                 expertise I needed but also genuinely cared about my progress.
                 Thanks to their guidance, I&apos;ve gained confidence and
-                achieved my goals faster than I ever thought possible."
+                achieved my goals faster than I ever thought possible.&quot;
               </p>
             </blockquote>
             <figcaption className="flex items-center justify-center mt-6 space-x-3">
