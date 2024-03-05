@@ -86,7 +86,7 @@ function TeacherStudentPreview() {
         try {
           const token = localStorage.getItem("token");
           const response = await axios.get(
-            `http://127.0.0.1:8000/api/teacherdetail/${params.teacherusername}`,
+            `https://sensei-backend.onrender.com//api/teacherdetail/${params.teacherusername}`,
             {
               headers: {
                 Authorization: `Token ${token}`,
@@ -110,7 +110,7 @@ function TeacherStudentPreview() {
         try {
           const token = localStorage.getItem("token");
           const response = await axios.get(
-            `http://127.0.0.1:8000/api/teachers/${params.teacherusername}/reviewed_students`,
+            `https://sensei-backend.onrender.com//api/teachers/${params.teacherusername}/reviewed_students`,
             {
               headers: {
                 Authorization: `Token ${token}`,
@@ -133,7 +133,7 @@ function TeacherStudentPreview() {
       const token = localStorage.getItem("token");
       const student_username = localStorage.getItem("username");
       const response = await axios.post(
-        "http://127.0.0.1:8000/api/add_student_to_teacher",
+        "https://sensei-backend.onrender.com//api/add_student_to_teacher",
 
         {
           id: enteredValue,
@@ -193,7 +193,7 @@ function TeacherStudentPreview() {
       const token = localStorage.getItem("token");
       const student_username = localStorage.getItem("username");
       const response = await axios.post(
-        "http://127.0.0.1:8000/api/add_review",
+        "https://sensei-backend.onrender.com//api/add_review",
         {
           teacher_username: params.teacherusername,
           student_username: student_username,
@@ -215,9 +215,9 @@ function TeacherStudentPreview() {
   };
 
   const handleSliderChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const newValue = parseInt(event.target.value); // Parse the value to ensure it's a number
-    setSliderValue([newValue]); // Update the slider value state with an array containing the new value
-    setReviewRating(newValue); // Update the review rating state with the new value
+    const newValue = parseInt(event.target.value);
+    setSliderValue([newValue]);
+    setReviewRating(newValue);
   };
 
   return (

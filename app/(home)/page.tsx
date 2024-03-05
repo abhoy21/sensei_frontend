@@ -8,7 +8,6 @@ import LandinPage from "./_Components/LandinPage";
 import TeacherProfile from "./_Components/TeacherProfile";
 import axios from "axios";
 import CardStudentView from "./_Components/CardStudentView";
-import Map from "./_Components/MapLocation";
 
 function HomePage() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -21,11 +20,14 @@ function HomePage() {
       setIsAuthenticated(true);
       const username = sessionStorage.getItem("username");
       axios
-        .get(`http://127.0.0.1:8000/api/is_teacher/${username}`, {
-          headers: {
-            Authorization: `Token ${token}`,
-          },
-        })
+        .get(
+          `https://sensei-backend.onrender.com//api/is_teacher/${username}`,
+          {
+            headers: {
+              Authorization: `Token ${token}`,
+            },
+          }
+        )
         .then((response) => {
           setIsTeacher(response.data.is_teacher);
         })
@@ -45,7 +47,7 @@ function HomePage() {
         ) : (
           <div className="flex flex-col items-center justify-center md:justify-start text-center gap-y-8 flex-1 px-6 pb-10">
             <Header />
-            {/* <Map /> */}
+
             <div className="w-[90%]">
               <h1 className="text-2xl md:text-5xl font-bold flex flext-start items-center py-16 bg-clip-text text-transparent bg-gradient-to-r from-gray-700 via-gray-900 to-black dark:bg-gradient-to-r dark:from-gray-100 dark:to-gray-900">
                 <svg

@@ -57,12 +57,12 @@ function LandinPage() {
               Trusted By Many
             </p>
             <h2 className="mt-3 mb-4 text-3xl font-extrabold tracking-tight text-gray-900 md:text-3xl dark:text-white">
-              Trusted by over 600 Students and 100 Sensei's
+              Trusted by over 600 Students and 100 Sensei&apos;s
             </h2>
             <p className="font-light text-gray-500 sm:text-xl dark:text-gray-400">
               Built on a foundation of trust, our platform boasts over 600
-              students and 100 Sensei's who rely on each other for enriching
-              educational experiences.
+              students and 100 Sensei&apos;s who rely on each other for
+              enriching educational experiences.
             </p>
           </div>
           <div className="col-span-2 space-y-8 md:grid md:grid-cols-2 md:gap-12 md:space-y-0">
@@ -168,8 +168,8 @@ function LandinPage() {
                 success, and this website exceeded my expectations. The seamless
                 matching process connected me with a Sensei who not only had the
                 expertise I needed but also genuinely cared about my progress.
-                Thanks to their guidance, I've gained confidence and achieved my
-                goals faster than I ever thought possible."
+                Thanks to their guidance, I&apos;ve gained confidence and
+                achieved my goals faster than I ever thought possible."
               </p>
             </blockquote>
             <figcaption className="flex items-center justify-center mt-6 space-x-3">
@@ -214,7 +214,7 @@ function LandinPage() {
                   tutor?
                 </AccordionTrigger>
                 <AccordionContent className="text-lg">
-                  You can find more information by visiting your sensei's
+                  You can find more information by visiting your sensei&apos;s
                   Profile
                 </AccordionContent>
               </AccordionItem>

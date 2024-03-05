@@ -34,7 +34,7 @@ const LoginForm = (): JSX.Element => {
 
       const response: AxiosResponse<ApiResponse> =
         await axios.post<ApiResponse>(
-          "http://127.0.0.1:8000/api-token-auth/",
+          "https://sensei-backend.onrender.com//api-token-auth/",
           requestData
         );
       console.log("Login hoegache bara abr dekchis ki?", response.data);
@@ -111,7 +111,7 @@ const LoginForm = (): JSX.Element => {
             Submit
           </button>
           <div className="signupContainerLoginLight">
-            <p>Don't have any account?</p>
+            <p>Don&apos;t have any account?</p>
             <a href="/register">Sign up</a>
           </div>
         </form>
