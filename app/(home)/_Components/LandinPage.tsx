@@ -12,6 +12,7 @@ import {
 import Lottie from "lottie-react";
 import animationData from "../../../public/assets/Animation - 1709098524650.json";
 import Link from "next/link";
+import Image from "next/image";
 
 function LandinPage() {
   return (
@@ -173,10 +174,12 @@ function LandinPage() {
               </p>
             </blockquote>
             <figcaption className="flex items-center justify-center mt-6 space-x-3">
-              <img
+              <Image
                 className="w-6 h-6 rounded-full"
-                src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/michael-gouch.png"
+                src="/assets/landing_profile.jpg"
                 alt="profile picture"
+                width={36}
+                height={36}
               />
               <div className="flex items-center divide-x-2 divide-gray-500 dark:divide-gray-700">
                 <div className="pr-3 font-medium text-gray-900 dark:text-white">

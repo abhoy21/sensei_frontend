@@ -21,6 +21,7 @@ import {
 import axios from "axios";
 import { useParams } from "next/navigation";
 import { Slider } from "@/components/ui/slider";
+import Image from "next/image";
 
 interface User {
   id: number;
@@ -234,7 +235,7 @@ function TeacherStudentPreview() {
               {/* alert */}
               <div className="flex flex-col justify-center p-4 bg-gray-500 border-gray-800 shadow-md hover:shodow-lg rounded-2xl">
                 <div className=" text-gray-100 flex items-center ">
-                  <img
+                  <Image
                     className="w-16 mr-2"
                     src="/assets/logo.png"
                     alt="Logo"
