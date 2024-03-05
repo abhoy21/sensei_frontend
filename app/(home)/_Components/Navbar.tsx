@@ -46,20 +46,43 @@ export const Navbar = () => {
     "https://github.com/shadcn.png"
   );
 
+  // const handleLogout = () => {
+  //   try {
+  //     localStorage.removeItem("token");
+  //     localStorage.removeItem("username");
+  //     console.log("Logout successful");
+  //     toast({
+  //       description:
+  //         "The logout process is complete. Please log in to proceed.",
+  //     });
+
+  //     router.push("/login");
+  //   } catch (error) {
+  //     console.error("Error during logout:", error);
+  //     toast({
+  //       description: "Unable to Logout, please try again later.",
+  //     });
+  //   }
+  // };
+
   const handleLogout = () => {
     try {
-      localStorage.removeItem("token");
-      localStorage.removeItem("username");
-      console.log("Logout successful");
-      toast({
-        description: "Logout hoe gache baal",
-      });
-
-      router.push("/login");
+      if (localStorage.getItem("token")) {
+        localStorage.removeItem("token");
+        localStorage.removeItem("username");
+        console.log("Logout successful");
+        toast({
+          description:
+            "The logout process is complete. Please log in to proceed.",
+        });
+        router.push("/login");
+      } else {
+        console.log("No token found, cannot logout.");
+      }
     } catch (error) {
       console.error("Error during logout:", error);
       toast({
-        description: "Logout, please try again later.",
+        description: "Unable to Logout, please try again later.",
       });
     }
   };
