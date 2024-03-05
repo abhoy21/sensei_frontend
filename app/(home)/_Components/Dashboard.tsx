@@ -82,7 +82,12 @@ function Dashboard() {
                 <div className="flex w-full items-center">
                   <div className="flex items-center text-3xl text-gray-900 dark:text-white">
                     <Avatar className="w-12 h-12 mr-4 rounded-full">
-                      <AvatarImage src="https://github.com/shadcn.png" />
+                      <AvatarImage
+                        src={
+                          teacher?.user.imageURL ||
+                          "https://github.com/shadcn.png"
+                        }
+                      />
                     </Avatar>
                     <h5>
                       {teacher?.user.first_name} {teacher?.user.last_name}{" "}
@@ -147,7 +152,12 @@ function Dashboard() {
                         <td className="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800">
                           <div className="flex items-center justify-center">
                             <Avatar className="mr-4">
-                              <AvatarImage src="https://github.com/shadcn.png" />
+                              <AvatarImage
+                                src={
+                                  student.user.imageURL ||
+                                  "https://github.com/shadcn.png"
+                                }
+                              />
                             </Avatar>
                             {student.user.first_name} {student.user.last_name}
                           </div>
