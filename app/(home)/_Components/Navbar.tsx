@@ -78,6 +78,9 @@ export const Navbar = () => {
         router.push("/login");
       } else {
         console.log("No token found, cannot logout.");
+        toast({
+          description: "You need to login",
+        });
       }
     } catch (error) {
       console.error("Error during logout:", error);

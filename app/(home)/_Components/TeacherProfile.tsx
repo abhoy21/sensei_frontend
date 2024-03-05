@@ -160,7 +160,12 @@ function TeacherProfile() {
                 {teacher && (
                   <React.Fragment>
                     <Avatar className="cursor-pointer h-48 w-48 mb-4">
-                      <AvatarImage src={avatarImageUrl} />
+                      <AvatarImage
+                        src={
+                          teacher.user.imageURL ||
+                          "https://github.com/shadcn.png"
+                        }
+                      />
                     </Avatar>
                     <div className="grid-cols-4 sm:grid-cols-12 px-2 ">
                       <p className="text-xl md:text-4xl font-bold">{`${teacher.user.first_name} ${teacher.user.last_name}`}</p>

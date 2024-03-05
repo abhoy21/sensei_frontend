@@ -37,7 +37,7 @@ const LoginForm = (): JSX.Element => {
           "https://sensei-backend.onrender.com/api-token-auth/",
           requestData
         );
-      console.log("Login hoegache bara abr dekchis ki?", response.data);
+      console.log("Login Done", response.data);
       toast({
         description: "LogIn Successfully!",
       });
