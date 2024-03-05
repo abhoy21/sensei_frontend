@@ -143,11 +143,8 @@ function Dashboard() {
                   </thead>
                   <tbody className="text-gray-600 dark:text-gray-100">
                     {teacher?.student_list.map((student, index) => (
-                      <tr>
-                        <td
-                          key={index}
-                          className="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800"
-                        >
+                      <tr key={index}>
+                        <td className="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800">
                           <div className="flex items-center justify-center">
                             <Avatar className="mr-4">
                               <AvatarImage src="https://github.com/shadcn.png" />
