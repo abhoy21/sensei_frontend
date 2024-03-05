@@ -12,7 +12,7 @@ export const Logo = () => {
   return (
     <div className="flex items-center gap-x-2">
       <a href="/" className="flex items-center">
-        <Image src="/logo.png" height="84" width="84" alt="Logo" />
+        <Image src="/assets/login.png" height="84" width="84" alt="Logo" />
       </a>
       <p
         className={cn("hidden md:flex font-semibold text-5xl", font.className)}
