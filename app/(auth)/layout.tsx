@@ -1,5 +1,6 @@
 import { Toaster } from "@/components/ui/toaster";
 import Image from "next/image";
+import logo_img from "../../public/assets/logo.png";
 
 const AuthLayout = ({ children }: { children: React.ReactNode }) => {
   return (
@@ -10,7 +11,7 @@ const AuthLayout = ({ children }: { children: React.ReactNode }) => {
         </h1>
         <div className="flex items-center justify-center">
           <a href="/">
-            <Image src="/logo.png" height="96" width="96" alt="Logo" />
+            <Image src={logo_img} height="84" width="84" alt="Logo" />
           </a>
         </div>
       </div>
