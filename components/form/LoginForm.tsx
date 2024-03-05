@@ -34,7 +34,7 @@ const LoginForm = (): JSX.Element => {
 
       const response: AxiosResponse<ApiResponse> =
         await axios.post<ApiResponse>(
-          "https://sensei-backend.onrender.com//api-token-auth/",
+          "https://sensei-backend.onrender.com/api-token-auth/",
           requestData
         );
       console.log("Login hoegache bara abr dekchis ki?", response.data);

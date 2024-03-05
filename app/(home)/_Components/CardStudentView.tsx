@@ -35,7 +35,7 @@ function CardStudentView() {
       try {
         const token = localStorage.getItem("token");
         const response = await axios.get(
-          "https://sensei-backend.onrender.com//api/teacherslist",
+          "https://sensei-backend.onrender.com/api/teacherslist",
           {
             headers: {
               Authorization: `Token ${token}`,

@@ -81,7 +81,7 @@ function TeacherProfile() {
         try {
           const token = localStorage.getItem("token");
           const response = await axios.get(
-            `https://sensei-backend.onrender.com//api/teacherdetail/${username}`,
+            `https://sensei-backend.onrender.com/api/teacherdetail/${username}`,
             {
               headers: {
                 Authorization: `Token ${token}`,
@@ -114,7 +114,7 @@ function TeacherProfile() {
     try {
       const token = localStorage.getItem("token");
       const response = await axios.patch(
-        "https://sensei-backend.onrender.com//api/edit/teacher",
+        "https://sensei-backend.onrender.com/api/edit/teacher",
         updatedTeacherData,
         {
           headers: {

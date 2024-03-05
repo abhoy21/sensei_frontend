@@ -82,7 +82,7 @@ function RegisterForm() {
     }
     try {
       const response = await fetch(
-        "https://sensei-backend.onrender.com//api/register/user",
+        "https://sensei-backend.onrender.com/api/register/user",
         {
           method: "POST",
           headers: {

@@ -87,7 +87,7 @@ function TeacherStudentPreview() {
         try {
           const token = localStorage.getItem("token");
           const response = await axios.get(
-            `https://sensei-backend.onrender.com//api/teacherdetail/${params.teacherusername}`,
+            `https://sensei-backend.onrender.com/api/teacherdetail/${params.teacherusername}`,
             {
               headers: {
                 Authorization: `Token ${token}`,
@@ -111,7 +111,7 @@ function TeacherStudentPreview() {
         try {
           const token = localStorage.getItem("token");
           const response = await axios.get(
-            `https://sensei-backend.onrender.com//api/teachers/${params.teacherusername}/reviewed_students`,
+            `https://sensei-backend.onrender.com/api/teachers/${params.teacherusername}/reviewed_students`,
             {
               headers: {
                 Authorization: `Token ${token}`,
@@ -134,7 +134,7 @@ function TeacherStudentPreview() {
       const token = localStorage.getItem("token");
       const student_username = localStorage.getItem("username");
       const response = await axios.post(
-        "https://sensei-backend.onrender.com//api/add_student_to_teacher",
+        "https://sensei-backend.onrender.com/api/add_student_to_teacher",
 
         {
           id: enteredValue,
@@ -194,7 +194,7 @@ function TeacherStudentPreview() {
       const token = localStorage.getItem("token");
       const student_username = localStorage.getItem("username");
       const response = await axios.post(
-        "https://sensei-backend.onrender.com//api/add_review",
+        "https://sensei-backend.onrender.com/api/add_review",
         {
           teacher_username: params.teacherusername,
           student_username: student_username,

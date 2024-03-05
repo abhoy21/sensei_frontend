@@ -54,7 +54,7 @@ function Dashboard() {
         try {
           const token = localStorage.getItem("token");
           const response = await axios.get(
-            `https://sensei-backend.onrender.com//api/teacherdetail/${username}`,
+            `https://sensei-backend.onrender.com/api/teacherdetail/${username}`,
             {
               headers: {
                 Authorization: `Token ${token}`,

@@ -20,14 +20,11 @@ function HomePage() {
       setIsAuthenticated(true);
       const username = sessionStorage.getItem("username");
       axios
-        .get(
-          `https://sensei-backend.onrender.com//api/is_teacher/${username}`,
-          {
-            headers: {
-              Authorization: `Token ${token}`,
-            },
-          }
-        )
+        .get(`https://sensei-backend.onrender.com/api/is_teacher/${username}`, {
+          headers: {
+            Authorization: `Token ${token}`,
+          },
+        })
         .then((response) => {
           setIsTeacher(response.data.is_teacher);
         })

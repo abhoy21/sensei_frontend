@@ -39,7 +39,7 @@ function Header() {
     try {
       const token = localStorage.getItem("token");
       const response = await axios.get(
-        `https://sensei-backend.onrender.com//api/searchteachers?query=${searchQuery}`,
+        `https://sensei-backend.onrender.com/api/searchteachers?query=${searchQuery}`,
         {
           headers: {
             Authorization: `Token ${token}`,
