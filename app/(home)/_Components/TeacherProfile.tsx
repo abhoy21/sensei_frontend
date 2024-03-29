@@ -195,6 +195,14 @@ function TeacherProfile() {
                           {teacher.user.email}
                         </p>
                       </div>
+                      <div className="grid-cols-4 sm:grid-cols-12 px-2 py-2 mt-2 mx-2 border border-gray-200 rounded-xl">
+                        <span className="font-bold text-lg m-4">
+                          Teacher ID:
+                        </span>
+                        <p className="text-md md:text-xl font-bold bg-gray-100 px-4">
+                          {teacher.user.id}
+                        </p>
+                      </div>
                     </div>
                   </React.Fragment>
                 )}

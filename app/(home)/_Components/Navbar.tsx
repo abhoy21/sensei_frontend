@@ -28,15 +28,22 @@ interface User {
   is_teacher: boolean;
 }
 
+interface Student {
+  id: number;
+  user: User;
+  which_class: number;
+}
+
 interface Teacher {
   user: User;
   qualifications: string;
   areas_of_expertise: string[];
-  student_list: any[];
+  student_list: Student[];
 }
 
 export const Navbar = () => {
   const [teacher, setTeacher] = useState<Teacher | null>(null);
+  const [student, setStudent] = useState<Student | null>(null);
   const [username, setUsername] = useState<string | null>(null);
   const scrolled = useScrollTop();
 
@@ -45,25 +52,6 @@ export const Navbar = () => {
   const [avatarImageUrl, setAvatarImageUrl] = useState(
     "https://github.com/shadcn.png"
   );
-
-  // const handleLogout = () => {
-  //   try {
-  //     localStorage.removeItem("token");
-  //     localStorage.removeItem("username");
-  //     console.log("Logout successful");
-  //     toast({
-  //       description:
-  //         "The logout process is complete. Please log in to proceed.",
-  //     });
-
-  //     router.push("/login");
-  //   } catch (error) {
-  //     console.error("Error during logout:", error);
-  //     toast({
-  //       description: "Unable to Logout, please try again later.",
-  //     });
-  //   }
-  // };
 
   const handleLogout = () => {
     try {
@@ -99,7 +87,7 @@ export const Navbar = () => {
 
   useEffect(() => {
     if (username) {
-      const fetchTeacherData = async () => {
+      const fetchData = async () => {
         try {
           const token = localStorage.getItem("token");
           const response = await axios.get(
@@ -110,19 +98,24 @@ export const Navbar = () => {
               },
             }
           );
-          setTeacher(response.data);
-          console.log(response.data.imageURL);
-          await setAvatarImageUrl(
-            response.data.imageURL || "https://github.com/shadcn.png"
-          );
+
+          if (response.data.user.is_teacher) {
+            // If the user is a teacher, set the teacher data
+            setTeacher(response.data);
+          } else {
+            // If the user is not a teacher (assuming it's a student), set the student data
+            setStudent(response.data);
+          }
+
+          console.log(response.data);
         } catch (error) {
-          console.error("Error fetching teacher data:", error);
+          console.error("Error fetching user data:", error);
         }
       };
 
-      fetchTeacherData();
+      fetchData();
     }
-  }, []);
+  }, [username]);
 
   return (
     <div
@@ -137,7 +130,13 @@ export const Navbar = () => {
         <div className="mx-2 md:mx-4 flex items-center">
           {" "}
           <Avatar className="cursor-pointer w-12 h-12" onClick={handleLogout}>
-            <AvatarImage src={avatarImageUrl} />
+            <AvatarImage
+              src={
+                teacher?.user.is_teacher
+                  ? teacher?.user.imageURL || "https://github.com/shadcn.png"
+                  : student?.user.imageURL || "https://github.com/shadcn.png"
+              }
+            />
           </Avatar>
           <span className="hidden md:flex text-xl text-gray-700 mx-4">
             {username}

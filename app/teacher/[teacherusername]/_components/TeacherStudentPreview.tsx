@@ -160,7 +160,7 @@ function TeacherStudentPreview() {
       try {
         const token = localStorage.getItem("token");
         const response = await axios.post(
-          "http://localhost:8000/api/check_username",
+          "https://sensei-backend.onrender.com/api/check_username",
           {
             student_username: studentUsername,
             teacher_username: params.teacherusername,
@@ -235,7 +235,7 @@ function TeacherStudentPreview() {
               {/* alert */}
               <div className="flex flex-col justify-center p-4 bg-gray-500 border-gray-800 shadow-md hover:shodow-lg rounded-2xl">
                 <div className=" text-gray-100 flex items-center ">
-                  <Image
+                  <img
                     className="w-16 mr-2"
                     src="/assets/logo.png"
                     alt="Logo"
