@@ -96,6 +96,7 @@ function TeacherStudentPreview() {
           );
           setTeacher(response.data);
           console.log(response.data);
+          console.log(params.teacherusername);
         } catch (error) {
           console.error("Error fetching teacher data:", error);
         }
@@ -255,94 +256,95 @@ function TeacherStudentPreview() {
                 </div>
               </div>
               {/* profile card */}
-              {reviewdStudents.map((student, index) => (
-                <div key={index} className="flex flex-col sticky top-0 z-10">
-                  <div className="bg-gray-200 border border-gray-200 shadow-lg  rounded-2xl p-4">
-                    <div className="flex-none sm:flex">
-                      <div className=" relative h-32 w-32   sm:mb-0 mb-3">
-                        <Avatar className=" w-32 h-32 object-cover rounded-2xl">
-                          <AvatarImage
-                            src={
-                              student.imageURL ||
-                              "https://github.com/shadcn.png"
-                            }
-                          />
-                        </Avatar>
-                      </div>
-                      <div className="flex-auto sm:ml-5 justify-evenly">
-                        <div className="flex items-center justify-between sm:mt-2">
-                          <div className="flex items-center">
-                            <div className="flex flex-col">
-                              <div className="w-full flex-none text-lg text-gray-800 font-bold leading-none">
-                                {teacher?.user.first_name}{" "}
-                                {teacher?.user.last_name}
-                              </div>
-                              <div className="flex-auto text-gray-800 my-1">
-                                <span className="mr-3 ">
-                                  {teacher?.qualifications}
-                                </span>
-                                <span className="mr-3 border-r border-gray-600  max-h-0" />
-                                <span>{teacher?.user.location}</span>
-                              </div>
+
+              <div className="flex flex-col sticky top-0 z-10">
+                <div className="bg-gray-200 border border-gray-200 shadow-lg  rounded-2xl p-4">
+                  <div className="flex-none sm:flex">
+                    <div className=" relative h-32 w-32   sm:mb-0 mb-3">
+                      <Avatar className=" w-32 h-32 object-cover rounded-2xl">
+                        <AvatarImage
+                          src={
+                            teacher?.user.imageURL ||
+                            "https://github.com/shadcn.png"
+                          }
+                        />
+                      </Avatar>
+                    </div>
+
+                    <div className="flex-auto sm:ml-5 justify-evenly">
+                      <div className="flex items-center justify-between sm:mt-2">
+                        <div className="flex items-center">
+                          <div className="flex flex-col">
+                            <div className="w-full flex-none text-lg text-gray-800 font-bold leading-none">
+                              {teacher?.user.first_name}{" "}
+                              {teacher?.user.last_name}
+                            </div>
+                            <div className="flex-auto text-gray-800 my-1">
+                              <span className="mr-3 ">
+                                {teacher?.qualifications}
+                              </span>
+                              <span className="mr-3 border-r border-gray-600  max-h-0" />
+                              <span>{teacher?.user.location}</span>
                             </div>
                           </div>
                         </div>
-                        <div className="flex flex-row items-center">
-                          <div className="flex">
-                            {Array.from(
-                              { length: Math.round(averageRating) },
-                              (_, index) => (
-                                <svg
-                                  key={index}
-                                  xmlns="http://www.w3.org/2000/svg"
-                                  viewBox="0 0 20 20"
-                                  fill="currentColor"
-                                  className="h-5 w-5 text-yellow-400"
-                                >
-                                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
-                                </svg>
-                              )
-                            )}
-                          </div>
+                      </div>
+                      <div className="flex flex-row items-center">
+                        <div className="flex">
+                          {Array.from(
+                            { length: Math.round(averageRating) },
+                            (_, index) => (
+                              <svg
+                                key={index}
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 20 20"
+                                fill="currentColor"
+                                className="h-5 w-5 text-yellow-400"
+                              >
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                              </svg>
+                            )
+                          )}
+                        </div>
+                      </div>
+
+                      <div className="flex pt-2  text-sm text-gray-400">
+                        <div className="flex-1 inline-flex items-center">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            className="h-5 w-5 mr-2"
+                            viewBox="0 0 20 20"
+                            fill="currentColor"
+                          >
+                            <path d="M8 9a3 3 0 100-6 3 3 0 000 6zM8 11a6 6 0 016 6H2a6 6 0 016-6zM16 7a1 1 0 10-2 0v1h-1a1 1 0 100 2h1v1a1 1 0 102 0v-1h1a1 1 0 100-2h-1V7z"></path>
+                          </svg>
+                          <p className="">
+                            {teacher?.student_list.length} Students
+                          </p>
                         </div>
 
-                        <div className="flex pt-2  text-sm text-gray-400">
-                          <div className="flex-1 inline-flex items-center">
-                            <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              className="h-5 w-5 mr-2"
-                              viewBox="0 0 20 20"
-                              fill="currentColor"
-                            >
-                              <path d="M8 9a3 3 0 100-6 3 3 0 000 6zM8 11a6 6 0 016 6H2a6 6 0 016-6zM16 7a1 1 0 10-2 0v1h-1a1 1 0 100 2h1v1a1 1 0 102 0v-1h1a1 1 0 100-2h-1V7z"></path>
-                            </svg>
-                            <p className="">
-                              {teacher?.student_list.length} Students
-                            </p>
-                          </div>
-
-                          <a
-                            href={`https://wa.me/+91${teacher?.user.whatsapp_number}`}
-                            target="_blank"
-                            className="flex items-center flex-no-shrink bg-yellow-300 hover:bg-transparent px-5 ml-4 py-2 text-md shadow-sm hover:shadow-lg font-medium tracking-wider border-2 border-yellow-300 hover:border-yellow-500 text-gray-700 rounded-full transition ease-in duration-300"
-                          >
-                            <MessageCircle size="16" className="mr-2" />
-                            Whatsapp
-                          </a>
-                          <a
-                            href={`mailto:${teacher?.user.email}`}
-                            target="_blank"
-                            className="flex items-center flex-no-shrink bg-transparent hover:bg-yellow-300 px-5 ml-4 py-2 text-md shadow-sm hover:shadow-lg font-medium tracking-wider border-2 border-yellow-300 hover:border-yellow-500 text-gray-700 rounded-full transition ease-in duration-300"
-                          >
-                            <Mail size="16" className="mr-2" />
-                            Mail
-                          </a>
-                        </div>
+                        <a
+                          href={`https://wa.me/+91${teacher?.user.whatsapp_number}`}
+                          target="_blank"
+                          className="flex items-center flex-no-shrink bg-yellow-300 hover:bg-transparent px-5 ml-4 py-2 text-md shadow-sm hover:shadow-lg font-medium tracking-wider border-2 border-yellow-300 hover:border-yellow-500 text-gray-700 rounded-full transition ease-in duration-300"
+                        >
+                          <MessageCircle size="16" className="mr-2" />
+                          Whatsapp
+                        </a>
+                        <a
+                          href={`mailto:${teacher?.user.email}`}
+                          target="_blank"
+                          className="flex items-center flex-no-shrink bg-transparent hover:bg-yellow-300 px-5 ml-4 py-2 text-md shadow-sm hover:shadow-lg font-medium tracking-wider border-2 border-yellow-300 hover:border-yellow-500 text-gray-700 rounded-full transition ease-in duration-300"
+                        >
+                          <Mail size="16" className="mr-2" />
+                          Mail
+                        </a>
                       </div>
                     </div>
                   </div>
                 </div>
-              ))}
+              </div>
+
               {/*-stats*/}
               <div className="grid grid-cols-24 gap-4 ">
                 <div className="col-span-4 md:col-span-12">

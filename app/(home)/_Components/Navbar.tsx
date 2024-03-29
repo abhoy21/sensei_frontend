@@ -23,27 +23,12 @@ interface User {
   imageURL: string;
   bio: string;
   whatsapp_number: string;
-  latitude: string;
-
+  location: string;
   is_teacher: boolean;
 }
 
-interface Student {
-  id: number;
-  user: User;
-  which_class: number;
-}
-
-interface Teacher {
-  user: User;
-  qualifications: string;
-  areas_of_expertise: string[];
-  student_list: Student[];
-}
-
 export const Navbar = () => {
-  const [teacher, setTeacher] = useState<Teacher | null>(null);
-  const [student, setStudent] = useState<Student | null>(null);
+  const [user, setUser] = useState<User | null>(null);
   const [username, setUsername] = useState<string | null>(null);
   const scrolled = useScrollTop();
 
@@ -86,12 +71,12 @@ export const Navbar = () => {
   }, []);
 
   useEffect(() => {
-    if (username) {
-      const fetchData = async () => {
-        try {
+    const fetchData = async () => {
+      try {
+        if (username) {
           const token = localStorage.getItem("token");
           const response = await axios.get(
-            `https://sensei-backend.onrender.com/api/teacherdetail/${username}`,
+            `https://sensei-backend.onrender.com/api/user_details?username=${username}`,
             {
               headers: {
                 Authorization: `Token ${token}`,
@@ -99,22 +84,15 @@ export const Navbar = () => {
             }
           );
 
-          if (response.data.user.is_teacher) {
-            // If the user is a teacher, set the teacher data
-            setTeacher(response.data);
-          } else {
-            // If the user is not a teacher (assuming it's a student), set the student data
-            setStudent(response.data);
-          }
-
+          setUser(response.data.user_details);
           console.log(response.data);
-        } catch (error) {
-          console.error("Error fetching user data:", error);
         }
-      };
+      } catch (error) {
+        console.error("Error fetching user data:", error);
+      }
+    };
 
-      fetchData();
-    }
+    fetchData();
   }, [username]);
 
   return (
@@ -131,11 +109,7 @@ export const Navbar = () => {
           {" "}
           <Avatar className="cursor-pointer w-12 h-12" onClick={handleLogout}>
             <AvatarImage
-              src={
-                teacher?.user.is_teacher
-                  ? teacher?.user.imageURL || "https://github.com/shadcn.png"
-                  : student?.user.imageURL || "https://github.com/shadcn.png"
-              }
+              src={user?.imageURL || "https://github.com/shadcn.png"}
             />
           </Avatar>
           <span className="hidden md:flex text-xl text-gray-700 mx-4">
